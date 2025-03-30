@@ -15,12 +15,114 @@
         .hero {
             background: url('hero-image.jpg') no-repeat center center/cover;
             color: white;
-            text-align: center;
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            animation: slideInBackground 2s ease-in-out forwards;
         }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 0 2rem;
+            height: 100%;
+        }
+        
+        .hero-content {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            color: white;
+            text-align: left;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            animation: fadeInLeft 1.5s ease-in-out forwards;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            animation: fadeInButton 2s ease-in-out forwards;
+        }
+        
+        .hero-content .btn:hover {
+            background-color: #218838;
+        }
+        
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInBackground {
+            from {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInButton {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+        
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        
+            .hero-content p {
+                font-size: 1rem;
+            }
+        
+            .hero-content .btn {
+                font-size: 0.9rem;
+            }
+        }
+        
+        
         .services img {
             width: 100%;
             border-radius: 10px;
@@ -206,6 +308,64 @@
       transform: translateY(0);
     }
   }
+
+  /* Animations and transitions */
+#contact {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input focus animations */
+form input, form textarea {
+    transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    transform: scale(1.05);
+    border-color: #2d6a4f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Styling for better appearance */
+h2.text-center {
+    margin-bottom: 20px;
+    color: #2d6a4f;
+    font-weight: bold;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+form {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
   
     </style>
 </head>
@@ -215,10 +375,10 @@
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
         <a class="navbar-brand text-white" href="#">Thera Spa</a>
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"  style="color: white;">
             <span class="navbar-toggler-icon" style="color: white;"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav"  style="color: white;">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#services">Services</a>
@@ -237,14 +397,17 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<div class="hero">
-    <div class="container">
-        <h1>Welcome to Thera Spa and Wellness</h1>
-        <p>Relax, Rejuvenate, and Revive</p>
-        <a href="#services" class="btn btn-custom btn-lg">Book a Service</a>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Thera Spa and Wellness</h1>
+                <p>Relax, Rejuvenate, and Revive</p>
+                <a href="#contact" class="btn btn-custom btn-lg">Book a Service</a>
+            </div>
+        </div>
     </div>
-</div>
+    
     <!-- About Us Section -->
 <section id="about" class="section bg-success mt-2">
     <div class="about-container">
@@ -345,6 +508,29 @@
         </div>
     </div>
 </section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="row" style="align-items: center;">
+        <h2 class="text-center">Contact Us</h2>
+        <form class="col-md-4 col-xl-4 mx-auto col-lg-4 col-sm-4 text-start p-3 m-3" style="background-color: #bbd1b0;">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label text-start">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success text-center">Send Message</button>
+        </form>
+    </div>
+</section>
+
 <!-- Footer -->
 <footer class="footer mb-0">
     <div class="container ">
