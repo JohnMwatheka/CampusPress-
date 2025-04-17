@@ -36,367 +36,161 @@
     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         /* Custom Styles */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .hero {
-            background: url('hero-image.jpg') no-repeat center center/cover;
-            color: white;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            animation: slideInBackground 2s ease-in-out forwards;
-        }
-        
-        .hero .container {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            padding: 0 2rem;
-            height: 100%;
-        }
-        
-        .hero-content {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 2rem;
-            color: white;
-            text-align: left;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            animation: fadeInLeft 1.5s ease-in-out forwards;
-        }
-        
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-content .btn {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            animation: fadeInButton 2s ease-in-out forwards;
-        }
-        
-        .hero-content .btn:hover {
-            background-color: #218838;
-        }
-        
-        /* Animations */
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInBackground {
-            from {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fadeInButton {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-content {
-                max-width: 100%;
-                padding: 1.5rem;
-            }
-        
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        
-            .hero-content p {
-                font-size: 1rem;
-            }
-        
-            .hero-content .btn {
-                font-size: 0.9rem;
-            }
-        }
-        
-        
-        .services img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .footer {
-            background: #8deca9;
-            color: rgb(10, 10, 10);
-            padding: 20px 0;
-            text-align: center;
-        }
-        .navbar{
-            background-color: #62f18d;
-            color: rgb(15, 15, 15);
-        }
-        .btn-custom {
-            background-color: #6c757d;
-            color: white;
-        }
-        .btn-custom:hover {
-            background-color: #5a6268;
-            color: white;
-        }
-        .section {
-            padding: 50px 20px;
-        }
-
-        .testimonial {
-            font-style: italic;
-        }
-         
-        #about {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        overflow: hidden;
-        }
-    
-        .about-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 1.5rem;
-        }
-    
-        .about-text {
-        flex: 1;
-        color: white;
-        text-align: left;
-        animation: fade-in-left 1.2s ease-in-out;
-        }
-    
-        .about-image {
-        flex: 1;
-        position: relative;
-        animation: fade-in-right 1.2s ease-in-out;
-        }
-    
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            filter: blur(0);
-            transition: filter 0.5s ease;
-            
-            /* Apply a soft fade effect on the left */
-            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
-            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
-        }
-        
-    
-    
-        /* Animations */
-        @keyframes fade-in-left {
-        0% {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        }
-    
-        @keyframes fade-in-right {
-        0% {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        }
-    
-        .animate-fade-in-left {
-        animation: fade-in-left 1.2s ease-in-out;
-        }
-    
-        .animate-fade-in-right {
-        animation: fade-in-right 1.2s ease-in-out;
-        }
-    
-        @media (max-width: 768px) {
-        .about-container {
-            flex-direction: column;
-        }
-    
-        .about-text {
-            text-align: center;
-        }
-        
-    /* Remove soft edges on smaller screens */
-        .about-image img {
-            mask-image: none;
-            -webkit-mask-image: none;
-        
-            }
-        }
-        
-    /* General Styling for Animations */
-    .card-animate {
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fade-in-up 1s ease-in-out forwards;
-    }
-  
-    /* Animation Delay for Each Card */
-    .col-md-4:nth-child(1) .card-animate {
-      animation-delay: 0.2s;
-    }
-  
-    .col-md-4:nth-child(2) .card-animate {
-      animation-delay: 0.4s;
-    }
-  
-    .col-md-4:nth-child(3) .card-animate {
-      animation-delay: 0.6s;
-    }
-  
-    /* Keyframes for Animation */
-    @keyframes fade-in-up {
-      0% {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
- 
-    /* Styling for Testimonial Animations */
-  .testimonial-animate {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fade-in-up 1s ease-in-out forwards;
-  }
-
-  /* Animation Delay for Each Testimonial */
-  .col-md-4:nth-child(1) .testimonial-animate {
-    animation-delay: 0.2s;
-  }
-
-  .col-md-4:nth-child(2) .testimonial-animate {
-    animation-delay: 0.4s;
-  }
-
-  .col-md-4:nth-child(3) .testimonial-animate {
-    animation-delay: 0.6s;
-  }
-
-  /* Keyframes for Animation */
-  @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Animations and transitions */
-#contact {
-    animation: fadeIn 2s ease-in-out;
+       /* Base Font */
+body {
+    font-family: Arial, sans-serif;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
+/* Simulating: .site background (Custom CSS plugin) */
+.site, body {
+    background-color: #e0f7fa; /* Customizer background */
+}
+
+/* Navbar/Menu Bar (Custom CSS plugin) */
+.navbar, .menu {
+    background-color: #000000; /* Custom CSS plugin */
+    color: white;
+}
+
+/* Button Customization (Accent Color) */
+.btn, .btn-custom {
+    background-color: #000000; /* Accent color from Customizer */
+    color: white;
+}
+
+.btn:hover, .btn-custom:hover {
+    background-color: #004d40;
+}
+
+/* Hyperlink Colors */
+a:link {
+    color: #004d40; /* Custom CSS plugin */
+}
+a:visited {
+    color: #00695c; /* Custom CSS plugin */
+}
+
+/* Hero Section */
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    animation: slideInBackground 2s ease-in-out forwards;
+}
+
+.hero .container {
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.hero-content {
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    text-align: left;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    animation: fadeInLeft 1.5s ease-in-out forwards;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInBackground {
+    from { transform: scale(1.1); opacity: 0.8; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* About Section */
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1.5rem;
+}
+
+.about-text {
+    flex: 1;
+    color: white;
+    animation: fade-in-left 1.2s ease-in-out;
+}
+
+.about-image {
+    flex: 1;
+    animation: fade-in-right 1.2s ease-in-out;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%);
+    transition: filter 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+    .about-text {
+        text-align: center;
+    }
+    .about-image img {
+        mask-image: none;
+        -webkit-mask-image: none;
     }
 }
 
-/* Input focus animations */
-form input, form textarea {
-    transition: all 0.3s ease;
+/* Animations */
+@keyframes fade-in-left {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
-form input:focus, form textarea:focus {
-    transform: scale(1.05);
-    border-color: #2d6a4f;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    outline: none;
+@keyframes fade-in-right {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
-/* Styling for better appearance */
-h2.text-center {
-    margin-bottom: 20px;
-    color: #2d6a4f;
-    font-weight: bold;
-    animation: slideIn 1s ease-in-out;
+/* Footer */
+.footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-form {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-form:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-  
     </style>
 </head>
-<body style="background-color: #9af0b3;">
+<body style="background-color: #000000;">
 
 <!-- Navbar -->
 <nav class="navbar navbar-top navbar-expand-lg sticky-top">
@@ -407,7 +201,7 @@ form:hover {
         <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="color: white;">
             <span class="navbar-toggler-icon" style="color: white;"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav" style="color: white;">
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#services">Services</a>
@@ -432,7 +226,7 @@ form:hover {
             <div class="hero-content">
                 <h1>Welcome to Thera Spa and Wellness</h1>
                 <p>Relax, Rejuvenate, and Revive</p>
-                <a href="#contact" class="btn btn-custom btn-lg">Book a Service</a>
+                <a href="#contact" class="btn btn-custom btn-lg text-white">Book a Service</a>
             </div>
         </div>
     </div>
